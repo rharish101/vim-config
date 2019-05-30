@@ -1,0 +1,78 @@
+[submodule "bundle/ale"]
+	path = bundle/ale
+	url = https://github.com/w0rp/ale
+[submodule "bundle/fastfold"]
+	path = bundle/fastfold
+	url = https://github.com/konfekt/fastfold
+[submodule "bundle/indentline"]
+	path = bundle/indentline
+	url = https://github.com/yggdroot/indentline
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/ddollar/nerdcommenter
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "bundle/nerdtree-git-plugin"]
+	path = bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "bundle/rename.vim"]
+	path = bundle/rename.vim
+	url = https://github.com/danro/rename.vim
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "bundle/undotree"]
+	path = bundle/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "bundle/vim-better-whitespace"]
+	path = bundle/vim-better-whitespace
+	url = https://github.com/ntpeters/vim-better-whitespace
+[submodule "bundle/vim-buftabline"]
+	path = bundle/vim-buftabline
+	url = https://github.com/ap/vim-buftabline
+[submodule "bundle/vimcaps"]
+	path = bundle/vimcaps
+	url = https://github.com/suxpert/vimcaps
+[submodule "bundle/vim-delete-hidden-buffers"]
+	path = bundle/vim-delete-hidden-buffers
+	url = https://github.com/arithran/vim-delete-hidden-buffers
+[submodule "bundle/vim-devicons"]
+	path = bundle/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "bundle/vim-instant-markdown"]
+	path = bundle/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown
+[submodule "bundle/vim-latex-live-preview"]
+	path = bundle/vim-latex-live-preview
+	url = https://github.com/xuhdev/vim-latex-live-preview
+[submodule "bundle/vim-python-pep8-indent"]
+	path = bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent
+[submodule "bundle/vim-shebang"]
+	path = bundle/vim-shebang
+	url = https://github.com/sbdchd/vim-shebang
+[submodule "bundle/vim-togglecursor"]
+	path = bundle/vim-togglecursor
+	url = https://github.com/jszakmeister/vim-togglecursor
+[submodule "bundle/vim-visual-increment"]
+	path = bundle/vim-visual-increment
+	url = https://github.com/triglav/vim-visual-increment
+[submodule "bundle/youcompleteme"]
+	path = bundle/youcompleteme
+	url = https://github.com/valloric/youcompleteme
+[submodule "bundle/auto-pairs"]
+	path = bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "bundle/accelerated-smooth-scroll"]
+	path = bundle/accelerated-smooth-scroll
+	url = https://github.com/yonchu/accelerated-smooth-scroll
+[submodule "bundle/vim-signature"]
+	path = bundle/vim-signature
+	url = https://github.com/kshenoy/vim-signature
