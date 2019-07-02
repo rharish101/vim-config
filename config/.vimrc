@@ -53,9 +53,6 @@ set tabstop=4                          " a tab is four spaces
 set shiftwidth=4                       " number of spaces to use for autoindenting
 set shiftround                         " use multiple of shiftwidth when indenting with '<' and '>'
 set autoindent                         " always set autoindenting on
-set smartindent                        " smartly indent a/c to syntax
-" comments are not pushed to the start of the line (happens with smartindent)
-inoremap # X#
 set copyindent                         " copy the previous indentation on autoindenting
 
 " Searching
@@ -95,6 +92,7 @@ endif
 " File extension specific settings
 autocmd FileType python setlocal completeopt-=preview
 filetype plugin on                  " enable plugins and features based on the filetype
+filetype plugin indent on           " enable filetype based indentation
 " Indentation for webdev languages, markdown and vimrc
 au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.md,*.json,*.vimrc
   \ setlocal tabstop=2 |
