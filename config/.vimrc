@@ -76,6 +76,7 @@ augroup AutoSaveFolds
 augroup END
 
 " Buffers
+set hidden                             " allow changing buffers without saving
 command BufDelete bp | bd #            " command to delete buffer compatible with NERDTree
 " shortcuts for moving b/w buffers
 nnoremap <C-N> :bnext<CR>
