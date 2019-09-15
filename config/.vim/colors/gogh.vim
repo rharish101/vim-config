@@ -19,12 +19,12 @@
 " ANSI COLORS:
 "=================================================================================
 "     Foreground   #d3dae3                                                       |
-"     Background   #2f343f                                                       |
+"     Background   #222d32                                                       |
 "     CursorColor  #d3dae3                                                       |
 "---------------------------------------|-----------------------------------------
 "     NORMAL       Hex          xterm   |      "BRIGHT      Hex          xterm   |
 "---------------------------------------|-----------------------------------------
-"     Black        #2f343f      0       |      brBlack      #505666      8       |
+"     Black        #222d32      0       |      brBlack      #586368      8       |
 "     Red          #c0392b      1       |      brRed        #e74c3c      9       |
 "     Green        #27ae60      2       |      brGreen      #2ecc71      10      |
 "     Yellow       #f39c12      3       |      brYellow     #f1c40f      11      |
@@ -54,25 +54,25 @@ let g:colors_name="gogh"
 "=======================================================================================================================
 " ARC DARK HIGHLIGHTING:
 "=======================================================================================================================
-highlight! Normal                 guifg=#bdc3c7  guibg=#2f343f  gui=NONE       ctermfg=7     ctermbg=0     cterm=NONE
-highlight! TabLineSel             guifg=#2f343f  guibg=#2980b9  gui=NONE       ctermfg=0     ctermbg=4     cterm=NONE
+highlight! Normal                 guifg=#bdc3c7  guibg=#222d32  gui=NONE       ctermfg=7     ctermbg=0     cterm=NONE
+highlight! TabLineSel             guifg=#222d32  guibg=#2980b9  gui=NONE       ctermfg=0     ctermbg=4     cterm=NONE
 highlight! Visual                 guifg=#2980b9  guibg=NONE     gui=reverse    ctermfg=4     ctermbg=NONE  cterm=reverse
-highlight! StatusLine             guifg=#bdc3c7  guibg=#505666  gui=NONE       ctermfg=7     ctermbg=8     cterm=NONE
-highlight! StatusLineNC           guifg=#2f343f  guibg=#505666  gui=NONE       ctermfg=0     ctermbg=8     cterm=NONE
+highlight! StatusLine             guifg=#bdc3c7  guibg=#586368  gui=NONE       ctermfg=7     ctermbg=8     cterm=NONE
+highlight! StatusLineNC           guifg=#222d32  guibg=#586368  gui=NONE       ctermfg=0     ctermbg=8     cterm=NONE
 highlight! MatchParen             guifg=#bdc3c7  guibg=#e74c3c  gui=NONE       ctermfg=7     ctermbg=9     cterm=NONE
 highlight! PmenuSbar              guifg=NONE     guibg=NONE     gui=NONE       ctermfg=NONE  ctermbg=NONE  cterm=NONE
 highlight! String                 guifg=#27ae60  guibg=NONE     gui=NONE       ctermfg=2     ctermbg=NONE  cterm=NONE
 highlight! PreProc                guifg=#e74c3c  guibg=NONE     gui=NONE       ctermfg=9     ctermbg=NONE  cterm=NONE
-highlight! Comment                guifg=#505666  guibg=NONE     gui=NONE       ctermfg=8     ctermbg=NONE  cterm=NONE
+highlight! Comment                guifg=#586368  guibg=NONE     gui=NONE       ctermfg=8     ctermbg=NONE  cterm=NONE
 highlight! Function               guifg=#2980b9  guibg=NONE     gui=NONE       ctermfg=4     ctermbg=NONE  cterm=NONE
 highlight! SpecialKey             guifg=#f39c12  guibg=NONE     gui=NONE       ctermfg=3     ctermbg=NONE  cterm=NONE
-highlight! CursorLine             guifg=NONE     guibg=#505666  gui=NONE       ctermfg=NONE  ctermbg=8     cterm=NONE
-highlight! CursorColumn           guifg=NONE     guibg=#2f343f  gui=NONE       ctermfg=NONE  ctermbg=0     cterm=NONE
-highlight! LineNr                 guifg=#505666  guibg=NONE     gui=NONE       ctermfg=8     ctermbg=NONE  cterm=NONE
+highlight! CursorLine             guifg=NONE     guibg=#586368  gui=NONE       ctermfg=NONE  ctermbg=8     cterm=NONE
+highlight! CursorColumn           guifg=NONE     guibg=#222d32  gui=NONE       ctermfg=NONE  ctermbg=0     cterm=NONE
+highlight! LineNr                 guifg=#586368  guibg=NONE     gui=NONE       ctermfg=8     ctermbg=NONE  cterm=NONE
 highlight! Underlined             guifg=#8e44ad  guibg=NONE     gui=NONE       ctermfg=5     ctermbg=NONE  cterm=NONE
-highlight! TabLineFill            guifg=#505666  guibg=NONE     gui=underline  ctermfg=8     ctermbg=NONE  cterm=underline
-highlight! TabLine                guifg=#2f343f  guibg=#505666  gui=NONE       ctermfg=0     ctermbg=8     cterm=NONE
-highlight! SpecialComment         guifg=#505666  guibg=NONE     gui=reverse    ctermfg=8     ctermbg=NONE  cterm=reverse
+highlight! TabLineFill            guifg=#586368  guibg=NONE     gui=underline  ctermfg=8     ctermbg=NONE  cterm=underline
+highlight! TabLine                guifg=#222d32  guibg=#586368  gui=NONE       ctermfg=0     ctermbg=8     cterm=NONE
+highlight! SpecialComment         guifg=#586368  guibg=NONE     gui=reverse    ctermfg=8     ctermbg=NONE  cterm=reverse
 highlight! Todo                   guifg=#f39c12  guibg=NONE     gui=reverse    ctermfg=3     ctermbg=NONE  cterm=reverse
 highlight! Search                 guifg=#27ae60  guibg=NONE     gui=reverse    ctermfg=2     ctermbg=NONE  cterm=reverse
 highlight! Error                  guifg=#c0392b  guibg=NONE     gui=reverse    ctermfg=1     ctermbg=NONE  cterm=reverse

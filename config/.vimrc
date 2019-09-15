@@ -43,6 +43,7 @@ set history=1000                       " remember more commands and search histo
 set undolevels=1000                    " use many muchos levels of undo
 set undofile                           " maintain undo history between sessions
 let &undodir = $HOME . '/.vim/undodir' " undo save directory
+set formatoptions+=ro                  " allow auto-adding of comments
 " highlight extra whitespace
 highlight BadWhitespace ctermbg=red guibg=red
 match BadWhitespace /\s\+$/
@@ -98,6 +99,8 @@ filetype plugin indent on           " enable filetype based indentation
 au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.md,*.json,*.vimrc
   \ setlocal tabstop=2 |
   \ setlocal shiftwidth=2
+au BufNewFile,BufRead *.py
+  \ set foldignore-=#               " allow folding of comments
 au BufNewFile,BufRead *.ts
   \ setlocal filetype=javascript    " enable javascript-like syntax highlighting for typescript
 au BufNewFile,BufRead *.tex
@@ -150,10 +153,11 @@ vmap <leader><S-p> <S-o><space><ESC>v"+p
 vmap <leader>d "+d
 
 " Options for the plugin ALE
-let g:ale_fixers={'python': ['black'], 'go': ['gofmt']}         " set fixers for linting issues
-call ale#Set('python_black_options', '--fast --line-length=79') " use black with line length limit of 79
-let g:ale_fix_on_save=1                                         " fix files on save
-let g:ale_pattern_options = {'.*\.tex$': {'ale_enabled': 0}}    " disable ALE for tex files
+let g:ale_fixers={'python': ['black'], 'go': ['gofmt'], 'cpp': ['uncrustify']}                    " set fixers for linting issues
+call ale#Set('python_black_options', '--fast --line-length=79')                                   " use black with line length limit of 79
+au FileType * call ale#Set('c_uncrustify_options', '-l ' . &ft . ' -c ' . $HOME . '/.uncrustify') " use uncrustify with custom config and auto-detect language
+let g:ale_fix_on_save=1                                                                           " fix files on save
+let g:ale_pattern_options = {'.*\.tex$': {'ale_enabled': 0}}                                      " disable ALE for tex files
 nmap <leader>f :ALEFix<CR>
 
 " Options for the plugin indentLine
@@ -181,8 +185,9 @@ let g:shebang#shebangs = {
   \ }
 
 " Options for other plugins
-let g:instant_markdown_autostart = 0                  " Don't start instant markdown preview on start
-let g:NERDSpaceDelims = 1                             " Delimit comments by one space
+set nrformats=alpha                                   " allow incrementing alphabets
+let g:instant_markdown_autostart = 0                  " don't start instant markdown preview on start
+let g:NERDSpaceDelims = 1                             " delimit comments by one space
 let g:strip_whitespace_on_save=1                      " strip trailing whitespace on save
 let g:livepreview_engine = 'xelatex -shell-escape'    " default pdf engine for latex-preview
 let g:ycm_seed_identifiers_with_syntax = 1            " ycm suggests built-ins
