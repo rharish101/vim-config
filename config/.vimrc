@@ -12,10 +12,6 @@ if 'VIRTUAL_ENV' in os.environ:
     exec(activate_this_file.read(), dict(__file__=activate_this))
 EOF
 
-" Enable Pathogen
-call pathogen#helptags()
-call pathogen#infect()
-
 " Set very magic mode on by default
 nnoremap / /\v
 vnoremap / /\v
@@ -40,6 +36,7 @@ set noerrorbells                       " don't beep
 set showmatch                          " set show matching parenthesis
 set updatetime=1000                    " set update time for the swap file
 set history=1000                       " remember more commands and search history
+set mouse=a                            " enable mouse support
 set undolevels=1000                    " use many muchos levels of undo
 set undofile                           " maintain undo history between sessions
 let &undodir = $HOME . '/.vim/undodir' " undo save directory
@@ -93,8 +90,7 @@ endif
 
 " File extension specific settings
 autocmd FileType python setlocal completeopt-=preview
-filetype plugin on                  " enable plugins and features based on the filetype
-filetype plugin indent on           " enable filetype based indentation
+filetype plugin indent on           " enable plugins, indentation and features based on the filetype
 " Indentation for webdev languages, markdown and vimrc
 au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.md,*.json,*.vimrc
   \ setlocal tabstop=2 |
@@ -154,8 +150,6 @@ vmap <leader>d "+d
 
 " Options for the plugin ALE
 let g:ale_fixers={'python': ['black'], 'go': ['gofmt'], 'cpp': ['uncrustify']}                    " set fixers for linting issues
-call ale#Set('python_black_options', '--fast --line-length=79')                                   " use black with line length limit of 79
-au FileType * call ale#Set('c_uncrustify_options', '-l ' . &ft . ' -c ' . $HOME . '/.uncrustify') " use uncrustify with custom config and auto-detect language
 let g:ale_fix_on_save=1                                                                           " fix files on save
 let g:ale_pattern_options = {'.*\.tex$': {'ale_enabled': 0}}                                      " disable ALE for tex files
 nmap <leader>f :ALEFix<CR>
@@ -195,3 +189,10 @@ let g:ycm_autoclose_preview_window_after_completion=1 " close preview
 let g:fastfold_fold_command_suffixes = []             " fastfold
 " close NERDTree on closing all buffers
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+packloadall          " load all plugins
+silent! helptags ALL " load all helptags
+
+" Plugins options to be set after plugin load
+call ale#Set('python_black_options', '--fast --line-length=79')                                   " use black with line length limit of 79
+au FileType * call ale#Set('c_uncrustify_options', '-l ' . &ft . ' -c ' . $HOME . '/.uncrustify') " use uncrustify with custom config and auto-detect language
