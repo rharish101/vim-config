@@ -64,9 +64,6 @@
 [submodule "bundle/vim-visual-increment"]
 	path = config/.vim/pack/bundle/start/vim-visual-increment
 	url = https://github.com/triglav/vim-visual-increment
-[submodule "bundle/youcompleteme"]
-	path = config/.vim/pack/bundle/start/youcompleteme
-	url = https://github.com/valloric/youcompleteme
 [submodule "bundle/auto-pairs"]
 	path = config/.vim/pack/bundle/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
