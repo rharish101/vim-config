@@ -73,3 +73,9 @@
 [submodule "bundle/vim-signature"]
 	path = config/.vim/pack/bundle/start/vim-signature
 	url = https://github.com/kshenoy/vim-signature
+[submodule "config/.vim/pack/bundle/start/vim-surround"]
+	path = config/.vim/pack/bundle/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "config/.vim/pack/bundle/start/supertab"]
+	path = config/.vim/pack/bundle/start/supertab
+	url = https://github.com/ervandew/supertab
