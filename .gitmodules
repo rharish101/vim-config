@@ -7,9 +7,6 @@
 [submodule "bundle/indentline"]
 	path = config/.vim/pack/bundle/start/indentline
 	url = https://github.com/yggdroot/indentline
-[submodule "bundle/nerdcommenter"]
-	path = config/.vim/pack/bundle/start/nerdcommenter
-	url = https://github.com/ddollar/nerdcommenter
 [submodule "bundle/nerdtree"]
 	path = config/.vim/pack/bundle/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
@@ -79,3 +76,6 @@
 [submodule "config/.vim/pack/bundle/start/supertab"]
 	path = config/.vim/pack/bundle/start/supertab
 	url = https://github.com/ervandew/supertab
+[submodule "config/.vim/pack/bundle/start/nerdcommenter"]
+	path = config/.vim/pack/bundle/start/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter

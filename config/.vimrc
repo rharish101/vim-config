@@ -150,7 +150,12 @@ vmap <leader><S-p> <S-o><space><ESC>v"+p
 vmap <leader>d "+d
 
 " Options for the plugin ALE
-let g:ale_linters={'python': ['pyls']}                       " use python-language-server
+" Enable some linters not done by default
+let g:ale_linters={
+  \ 'sh': ['bashls', 'shell'],
+  \ 'python': ['pyls'],
+  \ 'tex': ['texlabls', 'chktex']
+  \ }
 " Enable pydocstyle for docstring linting
 let g:ale_python_pyls_config={'pyls': {'plugins': {
   \ 'pydocstyle': {'enabled': v:true}
@@ -166,7 +171,6 @@ let g:ale_completion_enabled=1                               " enable ALE's comp
 set omnifunc=ale#completion#OmniFunc                         " make vim's omnicompletion use ALE, because supertab uses it for tab completion
 set completeopt+=noinsert                                    " fix for ALE auto completion
 let g:ale_set_balloons=1                                     " enable ballon text using mouse hover through LSP
-let g:ale_pattern_options = {'.*\.tex$': {'ale_enabled': 0}} " disable ALE for tex files
 nmap <leader>f :ALEFix<CR>
 nmap <leader>gd :ALEGoToDefinition<CR>
 
@@ -195,14 +199,14 @@ let g:shebang#shebangs = {
   \ }
 
 " Options for other plugins
-let g:instant_markdown_autostart = 0                  " don't start instant markdown preview on start
-let g:SuperTabDefaultCompletionType="<c-n>"           " tab completion from top to bottom
-let g:NERDSpaceDelims = 1                             " delimit comments by one space
-let g:strip_whitespace_on_save=1                      " strip trailing whitespace on save
-let g:livepreview_engine = 'xelatex -shell-escape'    " default pdf engine for latex-preview
-let g:ycm_seed_identifiers_with_syntax = 1            " ycm suggests built-ins
-let g:ycm_autoclose_preview_window_after_completion=1 " close preview
-let g:fastfold_fold_command_suffixes = []             " fastfold
+let g:instant_markdown_autostart = 0                   " don't start instant markdown preview on start
+let g:SuperTabDefaultCompletionType = "<c-n>"          " tab completion from top to bottom
+let g:NERDSpaceDelims = 1                              " delimit comments by one space
+let g:NERDCustomDelimiters = {'python': {'left': '#'}} " workaround for double-space in python
+let g:NERDDefaultAlign = "left"                        " align comment symbols to the left
+let g:strip_whitespace_on_save = 1                     " strip trailing whitespace on save
+let g:livepreview_engine = 'xelatex -shell-escape'     " default pdf engine for latex-preview
+let g:fastfold_fold_command_suffixes = []              " fastfold
 " close NERDTree on closing all buffers
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -212,3 +216,23 @@ silent! helptags ALL " load all helptags
 " Plugins options to be set after plugin load
 call ale#Set('python_black_options', '--fast --line-length=79')                                   " use black with line length limit of 79
 au FileType * call ale#Set('c_uncrustify_options', '-l ' . &ft . ' -c ' . $HOME . '/.uncrustify') " use uncrustify with custom config and auto-detect language
+" Use the buffer's directory if a git repository is not available
+function! LangServProjRoot(buffer)
+  let l:git_path = ale#path#FindNearestDirectory(a:buffer, '.git')
+  let l:curr_dir = fnamemodify(bufname(a:buffer), ':h')
+  return !empty(l:git_path) ? fnamemodify(l:git_path, ':h:h') : l:curr_dir
+endfunction
+call ale#linter#Define('sh', {
+\   'name': 'bashls',
+\   'lsp': 'stdio',
+\   'executable': function('ale_linters#sh#language_server#GetExecutable'),
+\   'command': function('ale_linters#sh#language_server#GetCommand'),
+\   'project_root': function('LangServProjRoot'),
+\})
+call ale#linter#Define('tex', {
+\   'name': 'texlabls',
+\   'lsp': 'stdio',
+\   'executable': {b -> ale#Var(b, 'tex_texlab_executable')},
+\   'command': function('ale_linters#tex#texlab#GetCommand'),
+\   'project_root': function('LangServProjRoot'),
+\})
