@@ -1,1 +1,4 @@
+config/.vim/undodir/
+config/.vim/swap/
+config/.vim/view/
 config/.vim/pack/tags*
