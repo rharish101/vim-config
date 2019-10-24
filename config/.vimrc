@@ -2,15 +2,6 @@
 if has('python3')
   silent! python3 1
 endif
-" Use Python with the libraries in the current virtualenv
-py << EOF
-import os
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  with open(activate_this, 'r') as activate_this_file:
-    exec(activate_this_file.read(), dict(__file__=activate_this))
-EOF
 
 " Set very magic mode on by default
 nnoremap / /\v
@@ -152,10 +143,10 @@ vmap <leader>d "+d
 " Options for the plugin ALE
 " Enable some linters not done by default
 let g:ale_linters={
-  \ 'sh': ['bashls', 'shell'],
   \ 'python': ['pyls'],
-  \ 'tex': ['texlabls', 'chktex']
+  \ 'cpp': ['clangd', 'gcc'],
   \ }
+let g:ale_python_black_options = '--fast --line-length=79'   " use black with line length limit of 79
 " Enable pydocstyle for docstring linting
 let g:ale_python_pyls_config={'pyls': {'plugins': {
   \ 'pydocstyle': {'enabled': v:true}
@@ -164,7 +155,7 @@ let g:ale_python_pyls_config={'pyls': {'plugins': {
 let g:ale_fixers={
   \ 'python': ['black', 'isort'],
   \ 'go': ['gofmt'],
-  \ 'cpp': ['uncrustify'],
+  \ 'cpp': ['clang-format', 'clangtidy'],
   \ }
 let g:ale_fix_on_save=1                                      " fix files on save
 let g:ale_completion_enabled=1                               " enable ALE's completion through LSP
@@ -212,27 +203,3 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 packloadall          " load all plugins
 silent! helptags ALL " load all helptags
-
-" Plugins options to be set after plugin load
-call ale#Set('python_black_options', '--fast --line-length=79')                                   " use black with line length limit of 79
-au FileType * call ale#Set('c_uncrustify_options', '-l ' . &ft . ' -c ' . $HOME . '/.uncrustify') " use uncrustify with custom config and auto-detect language
-" Use the buffer's directory if a git repository is not available
-function! LangServProjRoot(buffer)
-  let l:git_path = ale#path#FindNearestDirectory(a:buffer, '.git')
-  let l:curr_dir = fnamemodify(bufname(a:buffer), ':h')
-  return !empty(l:git_path) ? fnamemodify(l:git_path, ':h:h') : l:curr_dir
-endfunction
-call ale#linter#Define('sh', {
-\   'name': 'bashls',
-\   'lsp': 'stdio',
-\   'executable': function('ale_linters#sh#language_server#GetExecutable'),
-\   'command': function('ale_linters#sh#language_server#GetCommand'),
-\   'project_root': function('LangServProjRoot'),
-\})
-call ale#linter#Define('tex', {
-\   'name': 'texlabls',
-\   'lsp': 'stdio',
-\   'executable': {b -> ale#Var(b, 'tex_texlab_executable')},
-\   'command': function('ale_linters#tex#texlab#GetCommand'),
-\   'project_root': function('LangServProjRoot'),
-\})
