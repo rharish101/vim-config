@@ -84,7 +84,7 @@ endif
 autocmd FileType python setlocal completeopt-=preview
 filetype plugin indent on           " enable plugins, indentation and features based on the filetype
 " Indentation for webdev languages, markdown and vimrc
-au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.md,*.json,*.vimrc
+au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc
   \ setlocal tabstop=2 |
   \ setlocal shiftwidth=2
 au BufNewFile,BufRead *.py
@@ -146,11 +146,12 @@ let g:ale_linters={
   \ 'python': ['pyls'],
   \ 'cpp': ['clangd', 'gcc'],
   \ }
-let g:ale_python_black_options = '--fast --line-length=79'   " use black with line length limit of 79
+let g:ale_python_black_options='--fast --line-length=79'     " use black with line length limit of 79
 " Enable pydocstyle for docstring linting
 let g:ale_python_pyls_config={'pyls': {'plugins': {
   \ 'pydocstyle': {'enabled': v:true}
   \ }}}
+let g:ale_haskell_ghc_options='-dynamic'
 " Set fixers for linting issues
 let g:ale_fixers={
   \ 'python': ['black', 'isort'],
