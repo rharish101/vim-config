@@ -11,28 +11,29 @@ cnoremap \>s/ \>smagic/
 nnoremap :g/ :g/\v
 nnoremap :g// :g//
 
-set nocompatible               " don't go into Vi mode, use VIM's features
-let mapleader=","              " map leader changed to comma
-set noruler                    " hide the position of cursor in the buffer
-set laststatus=0               " hide the statusline
-set encoding=utf-8             " allow UTF8 characters to be viewed
-set nowrap                     " don't wrap lines
-set nrformats=alpha            " allow incrementing alphabets
-set fileformat=unix            " set unix file format
-set splitbelow                 " split new windows below current
-set splitright                 " split new windows to the right of current
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set number relativenumber      " always show line numbers
-set visualbell                 " don't beep
-set noerrorbells               " don't beep
-set showmatch                  " set show matching parenthesis
-set updatetime=1000            " set update time for the swap file
-set history=1000               " remember more commands and search history
-set mouse=a                    " enable mouse support
-set undolevels=1000            " use many muchos levels of undo
-set undofile                   " maintain undo history between sessions
-set undodir=~/.vim/undodir     " undo save directory
-set formatoptions+=ro          " allow auto-adding of comments
+set nocompatible                    " don't go into Vi mode, use VIM's features
+let mapleader=","                   " map leader changed to comma
+set noruler                         " hide the position of cursor in the buffer
+set laststatus=0                    " hide the statusline
+set encoding=utf-8                  " allow UTF8 characters to be viewed
+set nowrap                          " don't wrap lines
+set nrformats=alpha                 " allow incrementing alphabets
+set fileformat=unix                 " set unix file format
+set splitbelow                      " split new windows below current
+set splitright                      " split new windows to the right of current
+set backspace=indent,eol,start      " allow backspacing over everything in insert mode
+set number relativenumber           " always show line numbers
+set cursorline cursorlineopt=number " highlight the current line number
+set visualbell                      " don't beep
+set noerrorbells                    " don't beep
+set showmatch                       " set show matching parenthesis
+set updatetime=1000                 " set update time for the swap file
+set history=1000                    " remember more commands and search history
+set mouse=a                         " enable mouse support
+set undolevels=1000                 " use many muchos levels of undo
+set undofile                        " maintain undo history between sessions
+set undodir=~/.vim/undodir          " undo save directory
+set formatoptions+=ro               " allow auto-adding of comments
 " highlight extra whitespace
 highlight BadWhitespace ctermbg=red guibg=red
 match BadWhitespace /\s\+$/
@@ -84,7 +85,7 @@ endif
 autocmd FileType python setlocal completeopt-=preview
 filetype plugin indent on           " enable plugins, indentation and features based on the filetype
 " Indentation for webdev languages, markdown and vimrc
-au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc
+au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R
   \ setlocal tabstop=2 |
   \ setlocal shiftwidth=2
 au BufNewFile,BufRead *.py
@@ -145,6 +146,7 @@ vmap <leader>d "+d
 let g:ale_linters={
   \ 'python': ['pyls'],
   \ 'cpp': ['clangd', 'gcc'],
+  \ 'r': ['rlanguageserver'],
   \ }
 let g:ale_python_black_options='--fast --line-length=79'     " use black with line length limit of 79
 " Enable pydocstyle for docstring linting
@@ -157,6 +159,7 @@ let g:ale_fixers={
   \ 'python': ['black', 'isort'],
   \ 'go': ['gofmt'],
   \ 'cpp': ['clang-format', 'clangtidy'],
+  \ 'r': ['styler'],
   \ }
 let g:ale_fix_on_save=1                                      " fix files on save
 let g:ale_completion_enabled=1                               " enable ALE's completion through LSP
@@ -204,3 +207,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 packloadall          " load all plugins
 silent! helptags ALL " load all helptags
+
+call ale#linter#Define('r', {
+\   'name': 'rlanguageserver',
+\   'lsp': 'stdio',
+\   'executable': 'R',
+\   'command': 'R --slave -e "languageserver::run()"',
+\   'project_root': '',
+\})
