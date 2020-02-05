@@ -39,12 +39,13 @@ highlight BadWhitespace ctermbg=red guibg=red
 match BadWhitespace /\s\+$/
 
 " Indentation
-set expandtab    " convert tab to spaces
-set tabstop=4    " a tab is four spaces
-set shiftwidth=4 " number of spaces to use for autoindenting
-set shiftround   " use multiple of shiftwidth when indenting with '<' and '>'
-set autoindent   " always set autoindenting on
-set copyindent   " copy the previous indentation on autoindenting
+set expandtab     " convert tab to spaces
+set tabstop=4     " a tab is four spaces
+set softtabstop=4 " erase four indentation spaces with single backspace
+set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
 
 " Searching
 set ignorecase " ignore case when searching
@@ -111,6 +112,9 @@ vnoremap <silent> # :<C-U>
   \ gvy?<C-R><C-R>=substitute(
   \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \ gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" Put \begin{} \end{} tags tags around the current word in TeX
+au FileType tex inoremap <buffer> <C-N> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<ESC>kA
 
 " Change case with ~ key
 function! TwiddleCase(str)
@@ -194,16 +198,17 @@ let g:shebang#shebangs = {
   \ }
 
 " Options for other plugins
-let g:instant_markdown_autostart = 0                   " don't start instant markdown preview on start
-let g:SuperTabDefaultCompletionType = "<c-n>"          " tab completion from top to bottom
-let g:NERDSpaceDelims = 1                              " delimit comments by one space
-let g:NERDCustomDelimiters = {'python': {'left': '#'}} " workaround for double-space in python
-let g:NERDDefaultAlign = "left"                        " align comment symbols to the left
-let g:strip_whitespace_on_save = 1                     " strip trailing whitespace on save
-let g:livepreview_engine = 'xelatex -shell-escape'     " default pdf engine for latex-preview
-let g:fastfold_fold_command_suffixes = []              " fastfold
+let g:instant_markdown_autostart = 0                           " don't start instant markdown preview on start
+let g:SuperTabDefaultCompletionType = '<c-n>'                  " tab completion from top to bottom
+let g:NERDSpaceDelims = 1                                      " delimit comments by one space
+let g:NERDCustomDelimiters = {'python': {'left': '#'}}         " workaround for double-space in python
+let g:NERDDefaultAlign = 'left'                                " align comment symbols to the left
+let g:strip_whitespace_on_save = 1                             " strip trailing whitespace on save
+let g:livepreview_engine = 'xelatex -shell-escape'             " default pdf engine for latex-preview
+let g:fastfold_fold_command_suffixes = []                      " fastfold
+au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'}) " add custom auto-pairs mapping for inline math in LaTeX
 " close NERDTree on closing all buffers
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 packloadall          " load all plugins
 silent! helptags ALL " load all helptags
