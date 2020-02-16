@@ -214,11 +214,3 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 
 packloadall          " load all plugins
 silent! helptags ALL " load all helptags
-
-call ale#linter#Define('r', {
-\   'name': 'rlanguageserver',
-\   'lsp': 'stdio',
-\   'executable': 'R',
-\   'command': 'R --slave -e "languageserver::run()"',
-\   'project_root': '',
-\})
