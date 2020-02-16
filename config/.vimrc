@@ -113,8 +113,10 @@ vnoremap <silent> # :<C-U>
   \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \ gV:call setreg('"', old_reg, old_regtype)<CR>
 
-" Put \begin{} \end{} tags tags around the current word in TeX
+" Put \begin{} \end{} tags around the current word in TeX
 au FileType tex inoremap <buffer> <C-N> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<ESC>kA
+" Put inline \begin{} \end{} tags around the current Word in TeX
+au FileType tex inoremap <buffer> <C-P> <ESC>yiWi\begin{<ESC>Ea}<space>\end{<ESC>pa}<ESC>Bhi
 
 " Change case with ~ key
 function! TwiddleCase(str)
