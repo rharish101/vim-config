@@ -88,6 +88,7 @@ filetype plugin indent on           " enable plugins, indentation and features b
 " Indentation for webdev languages, markdown and vimrc
 au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R
   \ setlocal tabstop=2 |
+  \ setlocal softtabstop=2 |
   \ setlocal shiftwidth=2
 au BufNewFile,BufRead *.py
   \ set foldignore-=#               " allow folding of comments
@@ -98,7 +99,6 @@ au BufNewFile,BufRead *.tex
 au FileType tex
   \ setlocal spell spelllang=en_gb  " UK English spell check for tex files
 au FileType text
-  \ execute ':IndentLinesDisable' | " disable indentation lines
   \ setlocal noexpandtab            " do not convert tabs to spaces for standard text
 
 " Search for selected text, forwards or backwards.
@@ -176,18 +176,26 @@ nmap <leader>f :ALEFix<CR>
 nmap <leader>gd :ALEGoToDefinition<CR>
 
 " Options for the plugin indentLine
-let g:indentLine_showFirstIndentLevel = 1                      " show first indent level
-let g:indentLine_first_char = '▏'                              " character for indent lines
-let g:indentLine_char = '▏'                                    " character for indent lines
-let g:indentLine_color_term = 8                                " do not change gray color
-let g:indentLine_color_gui = '#505666'                         " do not change gray color
-let g:indentLine_bufTypeExclude = ['tex', 'json', 'markdown']  " exclude tex and json files
-let g:indentLine_fileTypeExclude = ['tex', 'json', 'markdown'] " exclude tex and json files
+let g:indentLine_showFirstIndentLevel = 1 " show first indent level
+let g:indentLine_first_char = '▏'         " character for indent lines
+let g:indentLine_char = '▏'               " character for indent lines
+let g:indentLine_color_term = 8           " do not change gray color
+let g:indentLine_color_gui = '#505666'    " do not change gray color
+let g:indentLine_fileTypeExclude = [
+  \ 'tex',
+  \ 'json',
+  \ 'markdown',
+  \ 'text'
+  \ ]
 " define command and function for changing indentation level for tabs
 " this is because the indentLine plugin also needs to be refreshed
 function SetIndent(indent)
+  let &tabstop=a:indent
+  let &softtabstop=a:indent
   let &shiftwidth=a:indent
-  execute ":IndentLinesReset"
+  if (index(g:indentLine_fileTypeExclude, &filetype) < 0)
+    execute ":IndentLinesReset"
+  endif
 endfunction
 command -nargs=1 SetIndent call SetIndent(<f-args>)
 
