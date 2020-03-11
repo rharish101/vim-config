@@ -55,6 +55,7 @@ set incsearch  " show search matches as you type
 
 " Folding
 set foldmethod=indent " allow folding of code by indentation
+set foldignore=       " allow folding of everything
 " shortcut for fixing indent-issues
 nnoremap <leader>s :set foldmethod=indent<CR>
 " shortcut for toggling a fold
@@ -90,8 +91,6 @@ au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R
   \ setlocal tabstop=2 |
   \ setlocal softtabstop=2 |
   \ setlocal shiftwidth=2
-au BufNewFile,BufRead *.py
-  \ set foldignore-=#               " allow folding of comments
 au BufNewFile,BufRead *.ts
   \ setlocal filetype=javascript    " enable javascript-like syntax highlighting for typescript
 au BufNewFile,BufRead *.tex
