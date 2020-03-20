@@ -198,8 +198,6 @@ command -nargs=1 SetIndent call SetIndent(<f-args>)
 let g:shebang#shebangs = {
   \ 'python' : '#!/usr/bin/env python3',
   \ 'awk': '#!/usr/bin/awk -f',
-  \ 'php': '',
-  \ 'sh' : '#!/usr/bin/zsh',
   \ }
 
 " Options for other plugins
