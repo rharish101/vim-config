@@ -75,14 +75,6 @@ command BufDelete bp | bd # " command to delete buffer compatible with NERDTree
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
-" Syntax Highlighting
-if &t_Co >= 256 || has("gui_running")
-  colorscheme gogh
-endif
-if &t_Co > 2 || has("gui_running")
-  syntax on " switch syntax highlighting on, when the terminal has colors
-endif
-
 " File extension specific settings
 autocmd FileType python setlocal completeopt-=preview
 filetype plugin indent on           " enable plugins, indentation and features based on the filetype
@@ -215,3 +207,9 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 
 packloadall          " load all plugins
 silent! helptags ALL " load all helptags
+
+" Syntax highlighting requires a loaded plugin
+syntax on
+set background=dark
+set termguicolors " enable true-color support
+colorscheme solarized8

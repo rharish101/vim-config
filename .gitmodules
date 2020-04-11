@@ -79,3 +79,6 @@
 [submodule "config/.vim/pack/bundle/start/nerdcommenter"]
 	path = config/.vim/pack/standard/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
+[submodule "config/.vim/pack/standard/start/vim-solarized8"]
+	path = config/.vim/pack/standard/start/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
