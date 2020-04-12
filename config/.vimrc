@@ -79,7 +79,7 @@ nnoremap <C-P> :bprev<CR>
 autocmd FileType python setlocal completeopt-=preview
 filetype plugin indent on           " enable plugins, indentation and features based on the filetype
 " Indentation for webdev languages, markdown and vimrc
-au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R
+au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R,*.yaml
   \ setlocal tabstop=2 |
   \ setlocal softtabstop=2 |
   \ setlocal shiftwidth=2
