@@ -1,9 +1,6 @@
 [submodule "bundle/ale"]
 	path = config/.vim/pack/vim8/start/ale
 	url = https://github.com/w0rp/ale
-[submodule "bundle/fastfold"]
-	path = config/.vim/pack/standard/start/fastfold
-	url = https://github.com/konfekt/fastfold
 [submodule "bundle/indentline"]
 	path = config/.vim/pack/standard/start/indentline
 	url = https://github.com/yggdroot/indentline
@@ -19,9 +16,6 @@
 [submodule "bundle/tabular"]
 	path = config/.vim/pack/standard/start/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule "bundle/tagbar"]
-	path = config/.vim/pack/standard/start/tagbar
-	url = https://github.com/majutsushi/tagbar
 [submodule "bundle/undotree"]
 	path = config/.vim/pack/standard/start/undotree
 	url = https://github.com/mbbill/undotree
@@ -34,12 +28,6 @@
 [submodule "bundle/vimcaps"]
 	path = config/.vim/pack/no_ssh/start/vimcaps
 	url = https://github.com/suxpert/vimcaps
-[submodule "bundle/vim-delete-hidden-buffers"]
-	path = config/.vim/pack/standard/start/vim-delete-hidden-buffers
-	url = https://github.com/arithran/vim-delete-hidden-buffers
-[submodule "bundle/vim-devicons"]
-	path = config/.vim/pack/standard/start/vim-devicons
-	url = https://github.com/ryanoasis/vim-devicons
 [submodule "bundle/vim-fugitive"]
 	path = config/.vim/pack/standard/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
@@ -49,12 +37,6 @@
 [submodule "bundle/vim-latex-live-preview"]
 	path = config/.vim/pack/no_ssh/start/vim-latex-live-preview
 	url = https://github.com/xuhdev/vim-latex-live-preview
-[submodule "bundle/vim-python-pep8-indent"]
-	path = config/.vim/pack/standard/start/vim-python-pep8-indent
-	url = https://github.com/Vimjas/vim-python-pep8-indent
-[submodule "bundle/vim-shebang"]
-	path = config/.vim/pack/standard/start/vim-shebang
-	url = https://github.com/sbdchd/vim-shebang
 [submodule "bundle/vim-togglecursor"]
 	path = config/.vim/pack/standard/start/vim-togglecursor
 	url = https://github.com/jszakmeister/vim-togglecursor
@@ -67,9 +49,6 @@
 [submodule "bundle/accelerated-smooth-scroll"]
 	path = config/.vim/pack/standard/start/accelerated-smooth-scroll
 	url = https://github.com/yonchu/accelerated-smooth-scroll
-[submodule "bundle/vim-signature"]
-	path = config/.vim/pack/standard/start/vim-signature
-	url = https://github.com/kshenoy/vim-signature
 [submodule "config/.vim/pack/bundle/start/vim-surround"]
 	path = config/.vim/pack/standard/start/vim-surround
 	url = https://github.com/tpope/vim-surround

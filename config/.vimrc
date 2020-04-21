@@ -186,12 +186,6 @@ function SetIndent(indent)
 endfunction
 command -nargs=1 SetIndent call SetIndent(<f-args>)
 
-" Options for the plugin vim-shebang
-let g:shebang#shebangs = {
-  \ 'python' : '#!/usr/bin/env python3',
-  \ 'awk': '#!/usr/bin/awk -f',
-  \ }
-
 " Options for other plugins
 let g:instant_markdown_autostart = 0                           " don't start instant markdown preview on start
 let g:SuperTabDefaultCompletionType = '<c-n>'                  " tab completion from top to bottom
@@ -200,7 +194,6 @@ let g:NERDCustomDelimiters = {'python': {'left': '#'}}         " workaround for 
 let g:NERDDefaultAlign = 'left'                                " align comment symbols to the left
 let g:strip_whitespace_on_save = 1                             " strip trailing whitespace on save
 let g:livepreview_engine = 'xelatex -shell-escape'             " default pdf engine for latex-preview
-let g:fastfold_fold_command_suffixes = []                      " fastfold
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'}) " add custom auto-pairs mapping for inline math in LaTeX
 " close NERDTree on closing all buffers
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
