@@ -61,9 +61,6 @@
 [submodule "config/.vim/pack/standard/start/vim-solarized8"]
 	path = config/.vim/pack/vim8/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
-[submodule "config/.vim/pack/no_ssh/start/fzf.vim"]
-	path = config/.vim/pack/no_ssh/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule "config/.vim/pack/no_ssh/start/nnn.vim"]
 	path = config/.vim/pack/no_ssh/start/nnn.vim
 	url = https://github.com/mcchrish/nnn.vim.git

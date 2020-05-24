@@ -144,16 +144,16 @@ let g:ale_linters={
   \ 'python': ['pyls'],
   \ 'cpp': ['clangd', 'gcc'],
   \ }
-let g:ale_python_black_options='--line-length=79' " use black with line length limit of 79
-" Enable pydocstyle for docstring linting
-let g:ale_python_pyls_config={'pyls': {'plugins': {
-  \ 'pydocstyle': {'enabled': v:true}
-  \ }}}
 " Set fixers for linting issues
 let g:ale_fixers={
   \ 'python': ['black', 'isort'],
   \ 'cpp': ['clang-format', 'clangtidy'],
   \ }
+let g:ale_python_black_options='--line-length=79'
+let g:ale_python_pyls_config={'pyls': {
+  \ 'configurationSources': ['flake8'],
+  \ 'plugins': {'pydocstyle': {'enabled': v:true}},
+  \ }}
 let g:ale_fix_on_save=1              " fix files on save
 let g:ale_completion_enabled=1       " enable ALE's completion through LSP
 set omnifunc=ale#completion#OmniFunc " make vim's omnicompletion use ALE, because supertab uses it for tab completion
