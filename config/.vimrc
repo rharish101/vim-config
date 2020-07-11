@@ -155,7 +155,7 @@ let g:SuperTabDefaultCompletionType = '<c-n>'                  " tab completion 
 let g:NERDSpaceDelims = 1                                      " delimit comments by one space
 let g:NERDCustomDelimiters = {'python': {'left': '#'}}         " workaround for double-space in python
 let g:NERDDefaultAlign = 'left'                                " align comment symbols to the left
-let g:livepreview_engine = 'xelatex -shell-escape'             " default pdf engine for latex-preview
+let g:livepreview_engine = 'latexmk'                           " default pdf engine for latex-preview
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'}) " add custom auto-pairs mapping for inline math in LaTeX
 " close NERDTree on closing all buffers
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
