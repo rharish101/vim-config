@@ -1,8 +1,8 @@
 " Set very magic mode on by default
 nnoremap / /\v
 vnoremap / /\v
-cnoremap %s/ %smagic/
-cnoremap \>s/ \>smagic/
+cnoremap %s/ %s/\v
+cnoremap >s/ >s/\v
 nnoremap :g/ :g/\v
 nnoremap :g// :g//
 
