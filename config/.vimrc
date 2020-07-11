@@ -44,15 +44,12 @@ set incsearch  " show search matches as you type
 " Folding
 set foldmethod=indent " allow folding of code by indentation
 set foldignore=       " allow folding of everything
-" shortcut for fixing indent-issues
-nnoremap <leader>s :set foldmethod=indent<CR>
 " shortcut for toggling a fold
 nnoremap <space> za
 " remember folds after closing and when opening files
 augroup AutoSaveFolds
   autocmd BufWinLeave ?* mkview
   autocmd BufWinEnter ?* silent loadview
-  autocmd BufWinEnter ?* set foldmethod=indent
 augroup END
 
 " Buffers
@@ -132,7 +129,7 @@ let g:ale_completion_enabled=1       " enable ALE's completion through LSP
 set omnifunc=ale#completion#OmniFunc " make vim's omnicompletion use ALE, because supertab uses it for tab completion
 set completeopt+=noinsert            " fix for ALE auto completion
 let g:ale_set_balloons=1             " enable ballon text using mouse hover through LSP
-nmap <leader>f :ALEFix<CR>
+nnoremap <leader>f :ALEFix \| let &foldmethod=&foldmethod <CR>
 
 " Options for the plugin indentLine
 let g:indentLine_showFirstIndentLevel = 1 " show first indent level
