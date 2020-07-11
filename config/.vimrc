@@ -130,17 +130,13 @@ let g:ale_set_balloons=1             " enable ballon text using mouse hover thro
 nnoremap <leader>f :ALEFix \| let &foldmethod=&foldmethod <CR>
 
 " Options for the plugin indentLine
-let g:indentLine_showFirstIndentLevel = 1 " show first indent level
-let g:indentLine_first_char = '▏'         " character for indent lines
-let g:indentLine_char = '▏'               " character for indent lines
-let g:indentLine_color_term = 8           " do not change gray color
-let g:indentLine_color_gui = '#505666'    " do not change gray color
-let g:indentLine_fileTypeExclude = [
-  \ 'tex',
-  \ 'json',
-  \ 'markdown',
-  \ 'text'
-  \ ]
+let g:indentLine_showFirstIndentLevel = 1   " show first indent level
+let g:indentLine_first_char = '▏'           " character for indent lines
+let g:indentLine_char = '▏'                 " character for indent lines
+let g:indentLine_color_term = 8             " do not change gray color
+let g:indentLine_color_gui = '#505666'      " do not change gray color
+let g:indentLine_concealcursor = 'c'        " when to display concealed content in the cursor line
+let g:indentLine_fileTypeExclude = ['text']
 " define command and function for changing indentation level for tabs
 " this is because the indentLine plugin also needs to be refreshed
 function SetIndent(indent)
