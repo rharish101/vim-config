@@ -1,8 +1,3 @@
-" Silently execute python3 to avoid deprecation warnings
-if has('python3')
-  silent! python3 1
-endif
-
 " Set very magic mode on by default
 nnoremap / /\v
 vnoremap / /\v
@@ -11,14 +6,12 @@ cnoremap \>s/ \>smagic/
 nnoremap :g/ :g/\v
 nnoremap :g// :g//
 
-set nocompatible                    " don't go into Vi mode, use VIM's features
 let mapleader=","                   " map leader changed to comma
 set noruler                         " hide the position of cursor in the buffer
 set laststatus=0                    " hide the statusline
 set encoding=utf-8                  " allow UTF8 characters to be viewed
 set nowrap                          " don't wrap lines
 set nrformats=alpha                 " allow incrementing alphabets
-set fileformat=unix                 " set unix file format
 set splitbelow                      " split new windows below current
 set splitright                      " split new windows to the right of current
 set backspace=indent,eol,start      " allow backspacing over everything in insert mode
@@ -28,15 +21,10 @@ set visualbell                      " don't beep
 set noerrorbells                    " don't beep
 set showmatch                       " set show matching parenthesis
 set updatetime=1000                 " set update time for the swap file
-set history=1000                    " remember more commands and search history
 set mouse=a                         " enable mouse support
-set undolevels=1000                 " use many muchos levels of undo
 set undofile                        " maintain undo history between sessions
 set undodir=~/.vim/undodir          " undo save directory
 set formatoptions+=ro               " allow auto-adding of comments
-" highlight extra whitespace
-highlight BadWhitespace ctermbg=red guibg=red
-match BadWhitespace /\s\+$/
 
 " Indentation
 set expandtab     " convert tab to spaces
@@ -62,7 +50,6 @@ nnoremap <leader>s :set foldmethod=indent<CR>
 nnoremap <space> za
 " remember folds after closing and when opening files
 augroup AutoSaveFolds
-  autocmd!
   autocmd BufWinLeave ?* mkview
   autocmd BufWinEnter ?* silent loadview
   autocmd BufWinEnter ?* set foldmethod=indent
@@ -83,26 +70,12 @@ au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R,*.y
   \ setlocal tabstop=2 |
   \ setlocal softtabstop=2 |
   \ setlocal shiftwidth=2
-au BufNewFile,BufRead *.ts
-  \ setlocal filetype=javascript    " enable javascript-like syntax highlighting for typescript
 au BufNewFile,BufRead *.tex
   \ setlocal filetype=tex           " by default it is simpletex
 au FileType tex
   \ setlocal spell spelllang=en_gb  " UK English spell check for tex files
 au FileType text
   \ setlocal noexpandtab            " do not convert tabs to spaces for standard text
-
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \ gvy/<C-R><C-R>=substitute(
-  \ escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \ gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \ gvy?<C-R><C-R>=substitute(
-  \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \ gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Put \begin{} \end{} tags around the current word in TeX
 au FileType tex inoremap <buffer> <C-N> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<ESC>kA
@@ -160,7 +133,6 @@ set omnifunc=ale#completion#OmniFunc " make vim's omnicompletion use ALE, becaus
 set completeopt+=noinsert            " fix for ALE auto completion
 let g:ale_set_balloons=1             " enable ballon text using mouse hover through LSP
 nmap <leader>f :ALEFix<CR>
-nmap <leader>gd :ALEGoToDefinition<CR>
 
 " Options for the plugin indentLine
 let g:indentLine_showFirstIndentLevel = 1 " show first indent level
@@ -192,7 +164,6 @@ let g:SuperTabDefaultCompletionType = '<c-n>'                  " tab completion 
 let g:NERDSpaceDelims = 1                                      " delimit comments by one space
 let g:NERDCustomDelimiters = {'python': {'left': '#'}}         " workaround for double-space in python
 let g:NERDDefaultAlign = 'left'                                " align comment symbols to the left
-let g:strip_whitespace_on_save = 1                             " strip trailing whitespace on save
 let g:livepreview_engine = 'xelatex -shell-escape'             " default pdf engine for latex-preview
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'}) " add custom auto-pairs mapping for inline math in LaTeX
 " close NERDTree on closing all buffers
