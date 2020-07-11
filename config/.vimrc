@@ -60,7 +60,6 @@ nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
 " File extension specific settings
-autocmd FileType python setlocal completeopt-=preview
 filetype plugin indent on           " enable plugins, indentation and features based on the filetype
 " Indentation for webdev languages, markdown and vimrc
 au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R,*.yaml
@@ -127,7 +126,7 @@ let g:ale_python_pyls_config={'pyls': {
 let g:ale_fix_on_save=1              " fix files on save
 let g:ale_completion_enabled=1       " enable ALE's completion through LSP
 set omnifunc=ale#completion#OmniFunc " make vim's omnicompletion use ALE, because supertab uses it for tab completion
-set completeopt+=noinsert            " fix for ALE auto completion
+set completeopt="menu,noinsert"      " display just the completion menu (without preview), and don't insert text automatically
 let g:ale_set_balloons=1             " enable ballon text using mouse hover through LSP
 nnoremap <leader>f :ALEFix \| let &foldmethod=&foldmethod <CR>
 
