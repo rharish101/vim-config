@@ -61,17 +61,13 @@ nnoremap <C-P> :bprev<CR>
 
 " File extension specific settings
 filetype plugin indent on           " enable plugins, indentation and features based on the filetype
-" Indentation for webdev languages, markdown and vimrc
-au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.json,*.vimrc,*.R,*.yaml
-  \ setlocal tabstop=2 |
-  \ setlocal softtabstop=2 |
-  \ setlocal shiftwidth=2
-au BufNewFile,BufRead *.tex
-  \ setlocal filetype=tex           " by default it is simpletex
-au FileType tex
-  \ setlocal spell spelllang=en_gb  " UK English spell check for tex files
-au FileType text
+let g:tex_flavor = 'latex'          " use filetype tex for all .tex files
+autocmd FileType php,javascript,typescript,html,css,scss,json,vim,r,yaml
+  \ call SetIndent(2)
+autocmd FileType go,text
   \ setlocal noexpandtab            " do not convert tabs to spaces for standard text
+autocmd FileType tex
+  \ setlocal spell spelllang=en_gb  " UK English spell check for tex files
 
 " Put \begin{} \end{} tags around the current word in TeX
 au FileType tex inoremap <buffer> <C-N> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<ESC>kA
