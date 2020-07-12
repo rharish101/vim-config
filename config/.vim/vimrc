@@ -1,19 +1,20 @@
-let mapleader=','                   " map leader changed to comma
-set noruler                         " hide the position of cursor in the buffer
-set laststatus=0                    " hide the statusline
-set encoding=utf-8                  " allow UTF8 characters to be viewed
-set nowrap                          " don't wrap lines
-set nrformats=alpha                 " allow incrementing alphabets
-set splitbelow splitright           " split new windows below or to the right of current
-set backspace=indent,eol,start      " allow backspacing over everything in insert mode
-set number relativenumber           " always show line numbers
-set visualbell noerrorbells         " don't beep
-set showmatch                       " set show matching parenthesis
-set updatetime=1000                 " set update time for the swap file
-set mouse=a                         " enable mouse support
-set undofile undodir=~/.vim/undodir " maintain undo history between sessions in a directory
-set formatoptions+=ro               " allow auto-adding of comments
-set hidden                          " allow changing buffers without saving
+let mapleader=','                       " map leader changed to comma
+set noruler                             " hide the position of cursor in the buffer
+set laststatus=0                        " hide the statusline
+set encoding=utf-8                      " allow UTF8 characters to be viewed
+set nowrap                              " don't wrap lines
+set nrformats=alpha                     " allow incrementing alphabets
+set splitbelow splitright               " split new windows below or to the right of current
+set backspace=indent,eol,start          " allow backspacing over everything in insert mode
+set number relativenumber               " always show line numbers
+set visualbell noerrorbells             " don't beep
+set showmatch                           " set show matching parenthesis
+set updatetime=1000                     " set update time for the swap file
+set mouse=a                             " enable mouse support
+set undofile undodir=~/.vim/undodir     " maintain undo history between sessions in a directory
+set formatoptions+=ro                   " allow auto-adding of comments
+set hidden                              " allow changing buffers without saving
+set wildmenu wildmode=longest:full,full " auto-completion for vim command line
 
 " Indentation
 set expandtab     " convert tab to spaces
