@@ -121,11 +121,11 @@ colorscheme solarized8
 " ==================================================
 
 " Command and function for changing tab indentation level
-" This is also refreshes the indentLine plugin's indentation lines
 function! SetIndent(indent) abort
-  let &tabstop=a:indent
-  let &softtabstop=a:indent
-  let &shiftwidth=a:indent
+  let &l:tabstop=a:indent
+  let &l:softtabstop=a:indent
+  let &l:shiftwidth=a:indent
+  " Refresh the indentLine plugin's indentation lines
   if (index(g:indentLine_fileTypeExclude, &filetype) < 0)
     execute ':IndentLinesReset'
   endif
