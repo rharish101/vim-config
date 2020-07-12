@@ -1,5 +1,5 @@
 [submodule "bundle/ale"]
-	path = config/.vim/pack/vim8/start/ale
+	path = config/.vim/pack/standard/start/ale
 	url = https://github.com/w0rp/ale
 [submodule "bundle/indentline"]
 	path = config/.vim/pack/standard/start/indentline
@@ -56,7 +56,7 @@
 	path = config/.vim/pack/standard/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
 [submodule "config/.vim/pack/standard/start/vim-solarized8"]
-	path = config/.vim/pack/vim8/start/vim-solarized8
+	path = config/.vim/pack/standard/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
 [submodule "config/.vim/pack/no_ssh/start/nnn.vim"]
 	path = config/.vim/pack/no_ssh/start/nnn.vim
