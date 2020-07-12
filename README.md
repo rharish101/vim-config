@@ -1,7 +1,8 @@
-# vim-config
+# Vim Configuration
 
-This is a repository holding my vim configuration, including vimrc and plugins.
-I use vim's default package management to manage my vim plugins.
+This is a repository holding my Vim configuration, including vimrc and plugins.
+I use vim's default package management to manage my Vim plugins.
+Therefore, Vim versions older than 8 are unsupported.
 
 The directory structure is kept as such for easy usage through GNU Stow.
 
