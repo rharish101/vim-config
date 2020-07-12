@@ -7,7 +7,6 @@ set nrformats=alpha                 " allow incrementing alphabets
 set splitbelow splitright           " split new windows below or to the right of current
 set backspace=indent,eol,start      " allow backspacing over everything in insert mode
 set number relativenumber           " always show line numbers
-set cursorline cursorlineopt=number " highlight the current line number
 set visualbell noerrorbells         " don't beep
 set showmatch                       " set show matching parenthesis
 set updatetime=1000                 " set update time for the swap file
@@ -33,6 +32,12 @@ set hlsearch             " highlight all search terms
 " Folding
 set foldmethod=indent " allow folding of code by indentation
 set foldignore=       " allow folding of everything
+
+" Highlight the current line number.
+" Before this patch, setting 'relativenumber' did this, and 'cursorlineopt' wasn't present.
+if has('patch-8.1.2019')
+  set cursorline cursorlineopt=number
+endif
 
 " Save the file 'view' after closing and load it when opening
 augroup AutoSaveFolds
