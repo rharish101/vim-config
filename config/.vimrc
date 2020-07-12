@@ -117,7 +117,7 @@ colorscheme solarized8
 
 " Command and function for changing tab indentation level
 " This is also refreshes the indentLine plugin's indentation lines
-function! SetIndent(indent)
+function! SetIndent(indent) abort
   let &tabstop=a:indent
   let &softtabstop=a:indent
   let &shiftwidth=a:indent
@@ -125,10 +125,10 @@ function! SetIndent(indent)
     execute ':IndentLinesReset'
   endif
 endfunction
-command -nargs=1 SetIndent call SetIndent(<f-args>)
+command! -nargs=1 SetIndent call SetIndent(<f-args>)
 
 " Change case with ~ key
-function! TwiddleCase(str)
+function! TwiddleCase(str) abort
   if a:str ==# toupper(a:str)
     let result = tolower(a:str)
   elseif a:str ==# tolower(a:str)
@@ -141,7 +141,7 @@ endfunction
 
 " Delete buffer while moving to the previous buffer
 " This does not mess with NERDTree
-command BufDelete bp | bd #
+command! BufDelete bp | bd #
 
 " ==================================================
 " Custom Shortcuts
