@@ -39,25 +39,31 @@ if has('patch-8.1.2019')
   set cursorline cursorlineopt=number
 endif
 
+" Autocommands group for fixes, or 'hacks'
+augroup Fixes
+  autocmd!
+augroup END
+
 " Save the file 'view' after closing and load it when opening
-augroup AutoSaveFolds
+augroup AutoSaveView
+  autocmd!
   autocmd BufWinLeave ?* mkview
   autocmd BufWinEnter ?* silent loadview
 augroup END
 
-" File extension specific settings
+" File type specific settings
 filetype plugin indent on           " enable plugins, indentation and features based on the filetype
 let g:tex_flavor = 'latex'          " use filetype tex for all .tex files
-autocmd FileType php,javascript,typescript,html,css,scss,json,vim,r,yaml
-  \ call SetIndent(2)
-autocmd FileType go,text
-  \ setlocal noexpandtab            " do not convert tabs to spaces for standard text
-autocmd FileType tex
-  \ setlocal spell spelllang=en_gb  " UK English spell check for tex files
+augroup FileTypeOpts
+  autocmd!
+  autocmd FileType php,javascript,typescript,html,css,scss,json,vim,r,yaml
+    \ call SetIndent(2)
+  autocmd FileType go,text setlocal noexpandtab       " do not convert tabs to spaces for standard text
+  autocmd FileType tex setlocal spell spelllang=en_gb " UK English spell check for tex files
+augroup END
 
 " Do not erase clipboard on exit
-autocmd VimLeave *
-  \ call system('echo ' . shellescape(getreg('+')) . ' | xclip -selection clipboard')
+autocmd Fixes VimLeave * call system('echo ' . shellescape(getreg('+')) . ' | xclip -selection clipboard')
 
 " ==================================================
 " Plugin Options
@@ -102,10 +108,16 @@ let g:NERDSpaceDelims = 1                              " delimit comments by one
 let g:NERDCustomDelimiters = {'python': {'left': '#'}} " workaround for double-space in python
 let g:NERDDefaultAlign = 'left'                        " align comment symbols to the left
 let g:livepreview_engine = 'latexmk'                   " default pdf engine for latex-preview
-autocmd FileType tex                                   " custom auto-pairs for inline math in LaTeX
-  \ let b:AutoPairs = AutoPairsDefine({'$' : '$'})
-autocmd BufEnter *                                     " close NERDTree on closing all buffers
-  \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Close NERDTree on closing all buffers
+autocmd Fixes BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Custom auto-pairs definitions
+augroup AutoPairs
+  autocmd!
+  " Inline math in LaTeX
+  autocmd FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
+augroup END
 
 packloadall          " load all plugins
 silent! helptags ALL " load all helptags
@@ -167,11 +179,14 @@ nnoremap <space> za
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
-autocmd FileType tex
-  "\ Put \begin{} \end{} tags around the current word
-  \ inoremap <buffer> <C-N> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<ESC>kA
-  "\ Put inline \begin{} \end{} tags around the current Word
-  \ inoremap <buffer> <C-P> <ESC>yiWi\begin{<ESC>Ea}<space>\end{<ESC>pa}<ESC>Bhi
+" Macros for LaTeX
+augroup LaTeXMacros
+  autocmd!
+  " Put \begin{} \end{} tags around the current word
+  autocmd FileType tex inoremap <buffer> <C-N> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<ESC>kA
+  " Put inline \begin{} \end{} tags around the current Word
+  autocmd FileType tex inoremap <buffer> <C-P> <ESC>yiWi\begin{<ESC>Ea}<space>\end{<ESC>pa}<ESC>Bhi
+augroup END
 
 " Clipboard shortcuts
 map <leader>y "+y
