@@ -196,8 +196,10 @@ map <leader>p o<space><ESC>v"+p
 map <leader><S-p> <S-o><space><ESC>v"+p
 map <leader>d "+d
 
-" Fix with ALE and take care of folding issues
-nnoremap <leader>f :ALEFix \| let &foldmethod=&foldmethod <CR>
+" Fix with ALE
+nnoremap <leader>f :ALEFix<CR>
+" Fix indent issues caused by ALE fixers
+nnoremap <leader>s :let &l:foldmethod=&l:foldmethod<CR>
 
 " Toggle between lower case, UPPER CASE, Capital Case
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
