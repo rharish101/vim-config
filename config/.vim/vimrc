@@ -120,10 +120,6 @@ augroup AutoPairs
   autocmd FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
 augroup END
 
-packloadall " load all plugins
-silent! helptags ALL " load all helptags
-
-" NOTE: Syntax highlighting requires a loaded plugin
 syntax on
 set background=dark
 set termguicolors " enable true-color support
