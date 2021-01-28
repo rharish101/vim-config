@@ -15,6 +15,7 @@ set undofile undodir=~/.vim/undodir " maintain undo history between sessions in 
 set formatoptions+=ro " allow auto-adding of comments
 set hidden " allow changing buffers without saving
 set wildmenu wildmode=longest:full,full " auto-completion for vim command line
+set viewoptions-=curdir " don't save the current directory in views
 
 " Indentation
 set expandtab " convert tab to spaces
@@ -49,7 +50,7 @@ augroup END
 augroup AutoSaveView
   autocmd!
   autocmd BufWinLeave ?* mkview
-  autocmd BufWinEnter ?* silent loadview
+  autocmd BufWinEnter ?* silent! loadview
 augroup END
 
 " File type specific settings
@@ -73,13 +74,12 @@ autocmd Fixes VimLeave * call system('echo ' . shellescape(getreg('+')) . ' | xc
 " ALE
 let g:ale_linters={
   \ 'python': ['pyls'],
-  \ 'cpp': ['clangd', 'gcc'],
+  \ 'tex': ['texlab', 'chktex'],
   \ }
 let g:ale_fixers={
   \ 'python': ['black', 'isort'],
   \ 'cpp': ['clang-format', 'clangtidy'],
   \ }
-let g:ale_python_black_options='--line-length=79'
 let g:ale_python_pyls_config={'pyls': {
   \ 'configurationSources': ['flake8'],
   \ 'plugins': {
