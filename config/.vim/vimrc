@@ -3,6 +3,7 @@ set noruler " hide the position of cursor in the buffer
 set laststatus=0 " hide the statusline
 set encoding=utf-8 " allow UTF8 characters to be viewed
 set nowrap " don't wrap lines
+set sidescroll=1 " scroll horizontally by one character at once
 set nrformats=alpha " allow incrementing alphabets
 set splitbelow splitright " split new windows below or to the right of current
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
