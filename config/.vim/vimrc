@@ -206,3 +206,6 @@ inoremap <C-t> <C-k>
 
 " Open NNN from the current buffer's path
 nnoremap <leader>N :NnnPicker %:p:h<CR>
+
+" Clear the fold column, which appears after a diff is improperly closed
+nnoremap <leader>c :set foldcolumn=0<CR>
