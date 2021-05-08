@@ -65,6 +65,11 @@ augroup FileTypeOpts
   autocmd FileType tex setlocal spell spelllang=en_gb " UK English spell check for tex files
 augroup END
 
+augroup AutoCompile
+  autocmd!
+  autocmd BufWritePost *.tex Make!
+augroup END
+
 " Do not erase clipboard on exit
 autocmd Fixes VimLeave * call system('echo ' . shellescape(getreg('+')) . ' | xclip -selection clipboard')
 
@@ -109,7 +114,7 @@ let g:SuperTabDefaultCompletionType = '<c-n>' " tab completion from top to botto
 let g:NERDSpaceDelims = 1 " delimit comments by one space
 let g:NERDCustomDelimiters = {'python': {'left': '#'}} " workaround for double-space in python
 let g:NERDDefaultAlign = 'left' " align comment symbols to the left
-let g:livepreview_engine = 'latexmk' " default pdf engine for latex-preview
+let g:dispatch_handlers = ['headless'] " don't use tmux
 
 " Close NERDTree on closing all buffers
 autocmd Fixes BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

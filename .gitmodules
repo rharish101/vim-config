@@ -31,9 +31,6 @@
 [submodule "bundle/vim-instant-markdown"]
 	path = config/.vim/pack/no_ssh/start/vim-instant-markdown
 	url = https://github.com/suan/vim-instant-markdown
-[submodule "bundle/vim-latex-live-preview"]
-	path = config/.vim/pack/no_ssh/start/vim-latex-live-preview
-	url = https://github.com/xuhdev/vim-latex-live-preview
 [submodule "bundle/vim-togglecursor"]
 	path = config/.vim/pack/standard/start/vim-togglecursor
 	url = https://github.com/jszakmeister/vim-togglecursor
@@ -64,3 +61,6 @@
 [submodule "config/.vim/pack/standard/start/vim-toml"]
 	path = config/.vim/pack/standard/start/vim-toml
 	url = https://github.com/cespare/vim-toml.git
+[submodule "config/.vim/pack/standard/start/vim-dispatch"]
+	path = config/.vim/pack/standard/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
