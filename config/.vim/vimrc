@@ -17,6 +17,7 @@ set formatoptions+=ro " allow auto-adding of comments
 set hidden " allow changing buffers without saving
 set wildmenu wildmode=longest:full,full " auto-completion for vim command line
 set viewoptions-=curdir " don't save the current directory in views
+set fillchars=eob:\ , " remove the ~ for empty lines
 
 " Indentation
 set expandtab " convert tab to spaces
