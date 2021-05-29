@@ -17,7 +17,6 @@ set formatoptions+=ro " allow auto-adding of comments
 set hidden " allow changing buffers without saving
 set wildmenu wildmode=longest:full,full " auto-completion for vim command line
 set viewoptions-=curdir " don't save the current directory in views
-set fillchars=eob:\ , " remove the ~ for empty lines
 
 " Indentation
 set expandtab " convert tab to spaces
@@ -41,6 +40,12 @@ set foldignore= " allow folding of everything
 " Before this patch, setting 'relativenumber' did this, and 'cursorlineopt' wasn't present.
 if has('patch-8.1.2019')
   set cursorline cursorlineopt=number
+endif
+
+" Remove the ~ for empty lines
+" Before this patch, it wasn't configurable
+if has('patch-8.2.2508')
+  set fillchars=eob:\ ,
 endif
 
 " Autocommands group for fixes, or 'hacks'
