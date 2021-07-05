@@ -99,7 +99,6 @@ let g:ale_python_pyls_config={'pyls': {
   \   'pyls_mypy': {'live_mode': v:false},
   \ },
   \ }}
-let g:ale_fix_on_save=1 " fix files on save
 let g:ale_completion_enabled=1 " enable ALE's completion through LSP
 set omnifunc=ale#completion#OmniFunc " make vim's omnicompletion use ALE, because supertab uses it for tab completion
 set completeopt=menu,menuone,noselect,noinsert " see `:h ale-completion-completeopt-bug`
