@@ -95,6 +95,9 @@ let g:ale_fixers={
 let g:ale_python_pylsp_config={'pylsp': {
   \ 'configurationSources': ['flake8'],
   \ 'plugins': {
+  \   'flake8': {'enabled': v:true},
+  \   'pycodestyle': {'enabled': v:false},
+  \   'pyflakes': {'enabled': v:false},
   \   'pydocstyle': {'enabled': v:true},
   \   'pylsp_mypy': {'dmypy': v:true},
   \ },
