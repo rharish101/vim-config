@@ -4,9 +4,6 @@
 [submodule "bundle/indentline"]
 	path = config/.vim/pack/standard/start/indentline
 	url = https://github.com/yggdroot/indentline
-[submodule "bundle/nerdtree"]
-	path = config/.vim/pack/standard/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree
 [submodule "bundle/rename.vim"]
 	path = config/.vim/pack/standard/start/rename.vim
 	url = https://github.com/danro/rename.vim
