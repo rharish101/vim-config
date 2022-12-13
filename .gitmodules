@@ -31,9 +31,6 @@
 [submodule "bundle/vim-togglecursor"]
 	path = config/.vim/pack/standard/start/vim-togglecursor
 	url = https://github.com/jszakmeister/vim-togglecursor
-[submodule "bundle/vim-visual-increment"]
-	path = config/.vim/pack/standard/start/vim-visual-increment
-	url = https://github.com/triglav/vim-visual-increment
 [submodule "bundle/auto-pairs"]
 	path = config/.vim/pack/standard/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
