@@ -86,7 +86,7 @@ autocmd Fixes VimLeave * call system('echo ' . shellescape(getreg('+')) . ' | xc
 " ALE
 let g:ale_linters={
   \ 'python': ['pylsp'],
-  \ 'rust': ['analyzer', 'cargo'],
+  \ 'rust': ['analyzer'],
   \ 'tex': ['texlab', 'chktex'],
   \ }
 let g:ale_fixers={
@@ -104,7 +104,9 @@ let g:ale_python_pylsp_config={'pylsp': {
   \   'pylsp_mypy': {'dmypy': v:true},
   \ },
   \ }}
-let g:ale_rust_cargo_use_clippy=executable('cargo-clippy') " use cargo-clippy if available
+let g:ale_rust_analyzer_config={
+  \ 'checkOnSave': {'command': 'clippy'},
+  \ }
 let g:ale_completion_enabled=1 " enable ALE's completion through LSP
 set omnifunc=ale#completion#OmniFunc " make vim's omnicompletion use ALE, because supertab uses it for tab completion
 set completeopt=menu,menuone,noselect,noinsert " see `:h ale-completion-completeopt-bug`
