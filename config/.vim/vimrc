@@ -172,7 +172,7 @@ command! BufDelete bp | bd #
 
 " 'Very Magic' mode on by default
 nnoremap / /\v
-vnoremap / /\v
+xnoremap / /\v
 cnoremap %s/ %s/\v
 cnoremap >s/ >s/\v
 nnoremap :g/ :g/\v
@@ -207,7 +207,7 @@ nnoremap <leader>f :ALEFix<CR>
 nnoremap <leader>s :let &l:foldmethod=&l:foldmethod<CR>
 
 " Toggle between lower case, UPPER CASE, Capital Case
-vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+xnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Alternate shortcut for digraphs
 inoremap <C-t> <C-k>
