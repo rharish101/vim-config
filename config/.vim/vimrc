@@ -73,7 +73,7 @@ augroup END
 
 augroup AutoCompile
   autocmd!
-  autocmd BufWritePost *.tex Make!
+  autocmd BufWritePost *.scss,*.tex Make!
 augroup END
 
 " Do not erase clipboard on exit
