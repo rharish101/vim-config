@@ -1,3 +1,7 @@
+" SPDX-FileCopyrightText: 2019 Harish Rajagopal <harish.rajagopals@gmail.com>
+"
+" SPDX-License-Identifier: MIT
+
 let mapleader=',' " map leader changed to comma
 set noruler " hide the position of cursor in the buffer
 set laststatus=0 " hide the statusline

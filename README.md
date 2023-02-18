@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 Harish Rajagopal <harish.rajagopals@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 # Vim Configuration
 
 This is a repository holding my Vim configuration, including vimrc and plugins.
@@ -24,3 +30,10 @@ stow -t ~ config
 ```sh
 mkdir ~/.vim/undodir
 ```
+
+## Licenses
+This repository uses [REUSE](https://reuse.software/) to document licenses.
+Each file has a header containing copyright and license information.
+The license files that are used in this project can be found in the [LICENSES](./LICENSES) directory.
+
+The MIT license is placed in [LICENSE](./LICENSE), to signify that it constitutes the majority of the codebase, and for compatibility with GitHub.

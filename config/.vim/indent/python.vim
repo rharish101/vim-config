@@ -1,3 +1,11 @@
+" SPDX-FileCopyrightText: 2004 Eric Mc Sween <em@tomcom.de>
+"
+" SPDX-License-Identifier: CC0-1.0
+
+" SPDX-FileCopyrightText: 2004 David Bustos <bustos@caltech.edu>
+"
+" SPDX-License-Identifier: CC0-1.0
+
 " Python indent file
 " Language:	    Python
 " Maintainer:	    Eric Mc Sween <em@tomcom.de>
