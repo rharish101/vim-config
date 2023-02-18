@@ -19,9 +19,6 @@
 [submodule "bundle/vim-buftabline"]
 	path = config/.vim/pack/standard/start/vim-buftabline
 	url = https://github.com/ap/vim-buftabline
-[submodule "bundle/vimcaps"]
-	path = config/.vim/pack/no_ssh/start/vimcaps
-	url = https://github.com/suxpert/vimcaps
 [submodule "bundle/vim-fugitive"]
 	path = config/.vim/pack/standard/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
