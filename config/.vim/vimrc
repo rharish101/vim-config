@@ -114,7 +114,6 @@ let g:indentLine_showFirstIndentLevel = 1 " show first indent level
 let g:indentLine_first_char = '▏' " character for indent lines
 let g:indentLine_char = '▏' " character for indent lines
 let g:indentLine_color_term = 8 " do not change gray color
-let g:indentLine_color_gui = '#505666' " do not change gray color
 let g:indentLine_concealcursor = 'c' " when to display concealed content in the cursor line
 let g:indentLine_fileTypeExclude = ['text']
 
