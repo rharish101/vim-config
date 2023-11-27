@@ -94,8 +94,12 @@ let g:ale_linters={
   \ 'tex': ['texlab', 'chktex'],
   \ }
 let g:ale_fixers={
+  \ 'css': ['prettier'],
+  \ 'html': ['prettier'],
+  \ 'javascript': ['prettier'],
   \ 'python': ['ruff', 'ruff_format'],
   \ 'rust': ['rustfmt'],
+  \ 'scss': ['prettier'],
   \ }
 let g:ale_python_pylsp_config={'pylsp': {
   \ 'plugins': {'pylsp_mypy': {'dmypy': v:true}},
