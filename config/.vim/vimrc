@@ -91,6 +91,7 @@ autocmd Fixes VimLeave * call system('echo ' . shellescape(getreg('+')) . ' | xc
 let g:ale_linters={
   \ 'python': ['pylsp'],
   \ 'rust': ['analyzer'],
+  \ 'systemd' : [],
   \ 'tex': ['texlab', 'chktex'],
   \ }
 let g:ale_fixers={
