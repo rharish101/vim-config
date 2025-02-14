@@ -228,7 +228,7 @@ nnoremap <leader>N :NnnPicker %:p:h<CR>
 nnoremap <leader>c :set foldcolumn=0<CR>
 
 " Automatically set the edition for `rustfmt`, as the default is '2015'
-let b:rust_edition = trim(system('cargo get --edition 2>/dev/null'))
+let b:rust_edition = trim(system('cargo get package.edition 2>/dev/null'))
 if v:shell_error == 0 && len(b:rust_edition) > 0
   let g:ale_rust_rustfmt_options = '--edition ' .. b:rust_edition
 endif
