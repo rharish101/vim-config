@@ -59,3 +59,6 @@
 [submodule "config/.vim/pack/standard/start/vim-dispatch"]
 	path = config/.vim/pack/standard/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "config/.vim/pack/no_ssh/start/vim-wayland-clipboard"]
+	path = config/.vim/pack/no_ssh/start/vim-wayland-clipboard
+	url = https://github.com/jasonccox/vim-wayland-clipboard.git
