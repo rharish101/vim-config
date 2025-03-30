@@ -69,7 +69,7 @@ filetype plugin indent on " enable plugins, indentation and features based on th
 let g:tex_flavor = 'latex' " use filetype tex for all .tex files
 augroup FileTypeOpts
   autocmd!
-  autocmd FileType php,javascript,typescript,html,css,scss,json,vim,r,yaml
+  autocmd FileType php,javascript,typescript,html,css,scss,json,vim,r,yaml,nix
     \ call SetIndent(2)
   autocmd FileType go,text setlocal noexpandtab " do not convert tabs to spaces for standard text
   autocmd FileType tex setlocal spell spelllang=en_gb " UK English spell check for tex files
