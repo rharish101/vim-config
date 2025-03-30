@@ -114,6 +114,7 @@ let g:ale_virtualtext_cursor='disabled' " disable ALE's virtual text
 set omnifunc=ale#completion#OmniFunc " make vim's omnicompletion use ALE, because supertab uses it for tab completion
 set completeopt=menu,menuone,noselect,noinsert " see `:h ale-completion-completeopt-bug`
 let g:ale_set_balloons=1 " enable ballon text using mouse hover through LSP
+let g:togglecursor_force='xterm' " force xterm mode for the togglecursor plugin
 
 " indentLine
 let g:indentLine_showFirstIndentLevel = 1 " show first indent level
