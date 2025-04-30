@@ -131,7 +131,6 @@ let g:NERDSpaceDelims = 1 " delimit comments by one space
 let g:NERDCustomDelimiters = {'python': {'left': '#'}} " workaround for double-space in python
 let g:NERDDefaultAlign = 'left' " align comment symbols to the left
 let g:dispatch_handlers = ['headless'] " don't use tmux
-let g:wayland_clipboard_unnamedplus = 1
 
 " Custom auto-pairs definitions
 augroup AutoPairs
