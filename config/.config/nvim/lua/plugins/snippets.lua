@@ -7,16 +7,30 @@ return {
 	-- Install jsregexp (optional!).
 	build = "make install_jsregexp",
 	config = function()
-		local luasnip = require("luasnip")
-		luasnip.add_snippets("tex", {
-			-- Equivalent to '${1:cond} ? ${2:then} : ${3:else}'
-			luasnip.snippet("env", {
-				luasnip.insert_node(1, "cond"),
-				luasnip.text_node(" ? "),
-				luasnip.insert_node(2, "then"),
-				luasnip.text_node(" : "),
-				luasnip.insert_node(3, "else"),
-			}),
+		local ls = require("luasnip")
+
+		-- Aliases
+		local s = ls.snippet
+		local t = ls.text_node
+		local i = ls.insert_node
+		local rep = require("luasnip.extras").rep
+		local fmta = require("luasnip.extras.fmt").fmta
+
+		ls.add_snippets("tex", {
+			-- Environments
+			s(
+				"env",
+				fmta(
+					[[
+						\begin{<>}
+							<>
+						\end{<>}
+					]],
+					{ i(1, "env"), i(2, "Content"), rep(1) }
+				)
+			),
+			-- Inline environments
+			s("inline_env", fmta("\\begin{<>}<>\\end{<>}", { i(1, "env"), i(2, "Content"), rep(1) })),
 		})
 	end,
 }
