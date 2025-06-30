@@ -27,4 +27,6 @@ require("lazy").setup({
 	install = { colorscheme = { "solarized" } },
 	-- Automatically check for plugin updates.
 	checker = { enabled = true },
+	-- Use the latest stable release for plugins that use semver.
+	defaults = { version = "*" },
 })
