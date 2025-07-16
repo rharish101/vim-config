@@ -26,6 +26,7 @@ return {
 	-- File browser
 	{
 		"mcchrish/nnn.vim",
+		enabled = vim.fn.executable("nnn"),
 		config = function()
 			vim.keymap.set("n", "<Leader>N", "<cmd>NnnPicker %:p:h<cr>")
 		end,
