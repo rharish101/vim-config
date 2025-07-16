@@ -18,10 +18,15 @@ return {
 				if client == nil then
 					return
 				end
+
+				-- Disable hover in favor of Pyright
 				if client.name == "ruff" then
-					-- Disable hover in favor of Pyright
 					client.server_capabilities.hoverProvider = false
 				end
+
+				-- Extra LSP-specific keymaps.
+				vim.keymap.set("n", "grd", vim.lsp.buf.definition, { buffer = args.buf })
+				vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, { buffer = args.buf })
 			end,
 			desc = "LSP: Disable hover capability from Ruff",
 		})
