@@ -27,7 +27,12 @@ return {
 	{
 		"mcchrish/nnn.vim",
 		enabled = vim.fn.executable("nnn"),
-		config = function()
+		opts = {
+			command = "nnn -A",
+			replace_netrw = true,
+		},
+		config = function(_, opts)
+			require("nnn").setup(opts)
 			vim.keymap.set("n", "<Leader>N", "<cmd>NnnPicker %:p:h<cr>")
 		end,
 	},
