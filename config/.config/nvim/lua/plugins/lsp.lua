@@ -6,7 +6,7 @@ return {
 	"neovim/nvim-lspconfig",
 	config = function()
 		vim.lsp.enable("nixd")
-		vim.lsp.enable("pyright")
+		vim.lsp.enable("ty")
 		vim.lsp.enable("ruff")
 		vim.lsp.enable("rust_analyzer")
 		vim.lsp.enable("texlab")
@@ -19,7 +19,7 @@ return {
 					return
 				end
 
-				-- Disable hover in favor of Pyright
+				-- Disable hover in favor of Ty
 				if client.name == "ruff" then
 					client.server_capabilities.hoverProvider = false
 				end
@@ -30,14 +30,6 @@ return {
 			end,
 			desc = "LSP: Disable hover capability from Ruff",
 		})
-		vim.lsp.config["pyright"] = {
-			settings = {
-				-- Using Ruff's import organizer
-				pyright = { disableOrganizeImports = true },
-				-- Ignore all files for analysis to exclusively use Ruff for linting
-				python = { analysis = { ignore = { "*" } } },
-			},
-		}
 
 		vim.lsp.config["rust_analyzer"] = {
 			settings = {
