@@ -91,6 +91,59 @@ vim.keymap.set({ "n", "v", "s", "o" }, "<leader>p", 'o<space><ESC>v"+p', { remap
 vim.keymap.set({ "n", "v", "s", "o" }, "<leader><S-p>", '<S-o><space><ESC>v"+p', { remap = true })
 vim.keymap.set({ "n", "v", "s", "o" }, "<leader>d", '"+d', { remap = true })
 
+local function copyForLlmPrompt()
+	local startLine, endLine
+	local mode = vim.fn.mode()
+	if mode:match("[vV]") then
+		local startLineSelect = vim.fn.line("v")
+		local endLineSelect = vim.fn.line(".")
+		-- We can have startLineSelect > endLineSelect if we select upwards.
+		startLine = math.min(startLineSelect, endLineSelect)
+		endLine = math.max(startLineSelect, endLineSelect)
+		-- End visual mode.
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+	else
+		local count = vim.v.count
+		count = math.max(count, 1)
+		startLine = vim.fn.line(".")
+		endLine = startLine + count - 1
+	end
+
+	-- Determine LSP root directory (fallback to cwd).
+	local rootDir
+	local clients = vim.lsp.get_clients({ bufnr = 0 })
+	if #clients > 0 then
+		rootDir = clients[1].config.root_dir
+	end
+	if not rootDir or rootDir == "" then
+		rootDir = vim.fn.getcwd()
+	end
+
+	-- Get relative path of current file if `rootDir` is an ancestor. Otherwise, get the absolute path.
+	local filePath = vim.api.nvim_buf_get_name(0)
+	local relPath = vim.fn.fnamemodify(filePath, ":.")
+	if filePath:sub(1, #rootDir) == rootDir then
+		relPath = filePath:sub(#rootDir + 2)
+	end
+
+	local header
+	if startLine == endLine then
+		header = string.format("\n%s:%d:\n```", relPath, startLine)
+	else
+		header = string.format("\n%s:%d-%d:\n```", relPath, startLine, endLine)
+	end
+
+	local lines = vim.api.nvim_buf_get_lines(buf, startLine - 1, endLine, false)
+	local text = table.concat(vim.list_extend({ header }, lines), "\n") .. "\n```\n"
+	vim.fn.setreg("+", text)
+
+	local yankedLines = endLine - startLine + 1
+	local plural = yankedLines > 1 and "s" or ""
+	print(string.format('%d line%s yanked into "+ for LLM prompting', yankedLines, plural))
+end
+
+vim.keymap.set({ "n", "v" }, "<leader>aY", copyForLlmPrompt)
+
 -- Misc. keymaps
 vim.keymap.set("n", "Y", "yy", { remap = true })
 

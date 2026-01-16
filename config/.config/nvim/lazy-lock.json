@@ -6,7 +6,6 @@
   "conform.nvim": { "branch": "master", "commit": "a6f5bdb78caa305496357d17e962bbc4c0b392e2" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
-  "minuet-ai.nvim": { "branch": "main", "commit": "cbb889d765071ad0d9f6f0ab8ac3868972bf7724" },
   "neoscroll.nvim": { "branch": "master", "commit": "a731f66f1d39ec6175fd201c5bf849e54abda99c" },
   "nerdcommenter": { "branch": "master", "commit": "f575c18d05bb237ac6c62d972f10784b34be9bbe" },
   "nnn.vim": { "branch": "master", "commit": "32d106a121eb4c88a8f4d0c6d779065b731c9fcb" },
