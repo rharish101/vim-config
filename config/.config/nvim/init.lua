@@ -133,7 +133,7 @@ local function copyForLlmPrompt()
 		header = string.format("\n%s:%d-%d:\n```", relPath, startLine, endLine)
 	end
 
-	local lines = vim.api.nvim_buf_get_lines(buf, startLine - 1, endLine, false)
+	local lines = vim.api.nvim_buf_get_lines(0, startLine - 1, endLine, false)
 	local text = table.concat(vim.list_extend({ header }, lines), "\n") .. "\n```\n"
 	vim.fn.setreg("+", text)
 
