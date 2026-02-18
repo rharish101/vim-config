@@ -29,4 +29,6 @@ require("lazy").setup({
 	checker = { enabled = true },
 	-- Use the latest stable release for plugins that use semver.
 	defaults = { version = "*" },
+	-- Disable LuaRocks.
+	rocks = { enabled = false },
 })
