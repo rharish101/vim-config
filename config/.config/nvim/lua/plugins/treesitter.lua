@@ -3,11 +3,33 @@
 -- SPDX-License-Identifier: MIT
 
 return {
-	"nvim-treesitter/nvim-treesitter",
-	branch = "master",
-	lazy = false,
-	build = ":TSUpdate",
-	config = function()
-		require("nvim-treesitter.configs").setup({ indent = { enable = true } })
-	end,
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		lazy = false,
+		build = ":TSUpdate",
+	},
+	{
+		"MeanderingProgrammer/treesitter-modules.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {
+			ensure_installed = {
+				"bash",
+				"css",
+				"fish",
+				"html",
+				"javascript",
+				"latex",
+				"lua",
+				"nix",
+				"python",
+				"rust",
+				"scss",
+				"typescript",
+			},
+			fold = { enable = true },
+			highlight = { enable = true },
+			indent = { enable = true },
+		},
+	},
 }
