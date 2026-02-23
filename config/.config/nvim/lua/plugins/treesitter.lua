@@ -3,33 +3,30 @@
 -- SPDX-License-Identifier: MIT
 
 return {
-	{
+	"MeanderingProgrammer/treesitter-modules.nvim",
+	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		branch = "main",
 		lazy = false,
 		build = ":TSUpdate",
 	},
-	{
-		"MeanderingProgrammer/treesitter-modules.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		opts = {
-			ensure_installed = {
-				"bash",
-				"css",
-				"fish",
-				"html",
-				"javascript",
-				"latex",
-				"lua",
-				"nix",
-				"python",
-				"rust",
-				"scss",
-				"typescript",
-			},
-			fold = { enable = true },
-			highlight = { enable = true },
-			indent = { enable = true },
+	opts = {
+		ensure_installed = {
+			"bash",
+			"css",
+			"fish",
+			"html",
+			"javascript",
+			"latex",
+			"lua",
+			"nix",
+			"python",
+			"rust",
+			"scss",
+			"typescript",
 		},
+		fold = { enable = true },
+		highlight = { enable = true },
+		indent = { enable = true },
 	},
 }
