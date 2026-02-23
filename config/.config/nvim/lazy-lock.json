@@ -12,7 +12,6 @@
   "nvim-autopairs": { "branch": "master", "commit": "23320e75953ac82e559c610bec5a90d9c6dfa743" },
   "nvim-cmp": { "branch": "main", "commit": "8c82d0bd31299dbff7f8e780f5e06d2283de9678" },
   "nvim-lspconfig": { "branch": "master", "commit": "44acfe887d4056f704ccc4f17513ed41c9e2b2e6" },
-  "nvim-solarized-lua": { "branch": "master", "commit": "d69a263c97cbc765ca442d682b3283aefd61d4ac" },
   "nvim-treesitter": { "branch": "main", "commit": "ecdae44baefeffceade8b0c752d80ececad28e76" },
   "nvim-ufo": { "branch": "main", "commit": "5b75cf5fdb74054fc8badb2e7ca9911dc0470d94" },
   "nvim-web-devicons": { "branch": "master", "commit": "5b9067899ee6a2538891573500e8fd6ff008440f" },
@@ -27,5 +26,6 @@
   "vim-better-whitespace": { "branch": "master", "commit": "de99b55a6fe8c96a69f9376f16b1d5d627a56e81" },
   "vim-dispatch": { "branch": "master", "commit": "488940870ab478cc443b06d5a62fea7ab999eabf" },
   "vim-fugitive": { "branch": "master", "commit": "96c1009fcf8ce60161cc938d149dd5a66d570756" },
+  "vim-solarized8": { "branch": "neovim", "commit": "1d05915cc9050ce1a8a6b94d8c2e48ead197c756" },
   "vim-surround": { "branch": "master", "commit": "aeb933272e72617f7c4d35e1f003be16836b948d" }
 }
