@@ -3,10 +3,13 @@
 -- SPDX-License-Identifier: MIT
 
 return {
-	"lifepillar/vim-solarized8",
-	branch = "neovim",
-	config = function()
-		vim.g.solarized_statusline = "flat"
-		vim.cmd.colorscheme("solarized8")
-	end,
+	{ "rktjmp/lush.nvim", branch = "main" },
+	{
+		"rharish101/okselenized.nvim",
+		dependencies = "rktjmp/lush.nvim",
+		config = function()
+			vim.g.selenized_variant = "bw"
+			vim.cmd.colorscheme("selenized")
+		end,
+	},
 }
