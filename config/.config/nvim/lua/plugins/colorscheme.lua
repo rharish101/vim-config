@@ -3,7 +3,7 @@
 -- SPDX-License-Identifier: MIT
 
 return {
-	"rharish101/okselenized.nvim",
+	"loganswartz/selenized.nvim",
 	dependencies = { "rktjmp/lush.nvim", branch = "main" },
 	config = function()
 		vim.g.selenized_variant = "bw"

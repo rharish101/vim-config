@@ -24,7 +24,7 @@ require("lazy").setup({
 	-- Import plugins.
 	spec = { { import = "plugins" } },
 	-- Color scheme that will be used when installing plugins
-	install = { colorscheme = { "solarized" } },
+	install = { colorscheme = { "selenized" } },
 	-- Automatically check for plugin updates.
 	checker = { enabled = true },
 	-- Use the latest stable release for plugins that use semver.
