@@ -41,16 +41,6 @@ return {
 	-- Change casing (e.g. capitalization)
 	{ "johmsalas/text-case.nvim", dependencies = "nvim-telescope/telescope.nvim", opts = {} },
 
-	-- Commenting
-	{
-		"preservim/nerdcommenter",
-		config = function()
-			vim.g.NERDSpaceDelims = 1
-			vim.g.NERDCustomDelimiters = { python = { left = "#" } } -- Workaround for double-spaces
-			vim.g.NERDDefaultAlign = "left"
-		end,
-	},
-
 	-- Arrange text in a tabular form.
 	{ "godlygeek/tabular" },
 
