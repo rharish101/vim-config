@@ -39,7 +39,7 @@ return {
 	{ "ntpeters/vim-better-whitespace" },
 
 	-- Change casing (e.g. capitalization)
-	{ "johmsalas/text-case.nvim", dependencies = "nvim-telescope/telescope.nvim", opts = {} },
+	{ "johmsalas/text-case.nvim", opts = {} },
 
 	-- Arrange text in a tabular form.
 	{ "godlygeek/tabular" },

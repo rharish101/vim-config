@@ -19,7 +19,6 @@
   "rename.vim": { "branch": "master", "commit": "f133763b0bbd79039f4e071a467ea8fc27d97dbd" },
   "selenized.nvim": { "branch": "main", "commit": "6f31b954da7e15190c2af1d550ce2f22bf675d97" },
   "tabular": { "branch": "master", "commit": "7bd1d0de5d390834220b7d0a791bb9734fafa0cc" },
-  "telescope.nvim": { "branch": "master", "commit": "3333a52ff548ba0a68af6d8da1e54f9cd96e9179" },
   "text-case.nvim": { "branch": "main", "commit": "13daf28a829e6d0646904c94214cb289bb0c6f34" },
   "treesitter-modules.nvim": { "branch": "main", "commit": "0cc09da40061051b0186479203faa75052cddab6" },
   "undotree": { "branch": "master", "commit": "d8f99084d98c32f651860eb0baaf89759f91debc" },
