@@ -61,4 +61,7 @@ return {
 
 	-- Shortcuts to edit enclosing brackets, quotes, etc.
 	{ "tpope/vim-surround" },
+
+	-- Auto-detection of indent style.
+	{ "Darazaki/indent-o-matic" },
 }
