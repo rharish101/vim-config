@@ -15,7 +15,10 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				javascript = { "prettier" },
+				json = { "prettier" },
+				jsonc = { "prettier" },
 				lua = { "stylua" },
+				markdown = { "prettier" },
 				python = {
 					-- To fix auto-fixable lint errors.
 					"ruff_fix",
@@ -25,6 +28,7 @@ return {
 					"ruff_organize_imports",
 				},
 				scss = { "prettier" },
+				typescript = { "prettier" },
 			},
 		},
 		config = function(_, opts)
