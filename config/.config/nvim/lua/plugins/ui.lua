@@ -33,7 +33,7 @@ return {
 		},
 		config = function(_, opts)
 			require("nnn").setup(opts)
-			vim.keymap.set("n", "<Leader>N", "<cmd>NnnPicker %:p:h<cr>")
+			vim.keymap.set("n", "<Leader>N", "<cmd>NnnPicker %:h<cr>")
 		end,
 	},
 }
