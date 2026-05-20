@@ -9,7 +9,7 @@ vim.opt.nrformats:append({ "alpha" })
 vim.opt.showmatch = true
 vim.opt.undofile = true
 vim.opt.formatoptions:append({ r = true, o = true })
-vim.opt.viewoptions:remove({ "curdir" })
+vim.opt.viewoptions = { "cursor" }
 vim.opt.exrc = true
 vim.opt.fillchars = { eob = " " }
 vim.opt.termguicolors = true
