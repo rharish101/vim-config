@@ -28,6 +28,7 @@ return {
 					"ruff_organize_imports",
 				},
 				scss = { "prettier" },
+				sh = { "shfmt" },
 				typescript = { "prettier" },
 			},
 		},
