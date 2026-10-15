@@ -147,5 +147,15 @@ vim.keymap.set({ "n", "v" }, "<leader>aY", copyForLlmPrompt)
 -- Misc. keymaps
 vim.keymap.set("n", "Y", "yy", { remap = true })
 
+-- Clipboard provider
+local function notEmpty(str)
+	return str ~= nil and str ~= ""
+end
+
+if notEmpty(vim.env.SSH_CLIENT) or notEmpty(vim.env.SSH_TTY) then
+	-- Over SSH, Nvim can't detect client support outside tmux.
+	vim.g.clipboard = notEmpty(vim.env.TMUX) and "tmux" or "osc52"
+end
+
 -- Plugins
 require("config.lazy")
